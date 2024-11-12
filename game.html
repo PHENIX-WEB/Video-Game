@@ -81,7 +81,7 @@
     <input type="text" id="user-input" placeholder="Write the phrase here..." disabled>
     <button id="play-button">PLAY</button>
     <button id="next-level-button">Next level</button>
-    <div id="congratulations-message">Game over....gratulation</div>
+    <div id="congratulations-message">¡Felicitaciones! Has completado el juego.</div>
 </div>
 
 <script>
@@ -145,7 +145,7 @@
                 if (level === maxLevel) {
                     wordDisplay.textContent = `Game over. Final score: ${score}`;
                     playButton.disabled = true;
-                    nextLevelButton.textContent = "Restart";
+                    nextLevelButton.textContent = "Go to another page";
                     nextLevelButton.style.display = "inline-block";
                     congratulationsMessage.style.display = "block";
                 } else {
@@ -160,13 +160,8 @@
 
     nextLevelButton.addEventListener('click', () => {
         if (level === maxLevel) {
-            level = 1;
-            score = 0;
-            playButton.disabled = false;
-            nextLevelButton.style.display = "none";
-            congratulationsMessage.style.display = "none";
-            wordDisplay.textContent = "Press 'Play' to start";
-            updateScoreAndLevel();
+            // Redirect to another page when clicking the "Go to another page" button at the end of the game
+            window.location.href = 'index.html'; // Replace with your target URL
         } else {
             level += 1;
             updateScoreAndLevel();

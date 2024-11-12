@@ -55,14 +55,18 @@
             font-weight: bold;
             margin-top: 15px;
         }
-        #next-button {
+        #next-button, #redirect-button {
             padding: 10px 20px;
             background-color: #28a745;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px;
             display: none;
+        }
+        #redirect-button {
+            background-color: #007bff;
         }
     </style>
 </head>
@@ -73,6 +77,12 @@
     <div id="scrambled-sentence"></div>
     <div id="success-message"></div>
     <button id="next-button">Siguiente Frase</button>
+</div>
+
+<div class="final-page">
+    <h1>¡Juego Completado!</h1>
+    <p id="final-score"></p>
+    <button id="redirect-button" onclick="redirectToPage()">Ir a Otra Página</button>
 </div>
 
 <script>
@@ -161,7 +171,12 @@
     function displayFinalPage() {
         gameContainer.classList.remove('active');
         finalPage.classList.add('active');
-        finalScore.textContent = Puntuación final: ${score} puntos de ${sentences.length};
+        finalScore.textContent = `Puntuación final: ${score} puntos de ${sentences.length}`;
+        document.getElementById('redirect-button').style.display = "inline-block";
+    }
+
+    function redirectToPage() {
+        window.location.href = "game.html"; // Cambia "otra_pagina.html" a la URL deseada
     }
 
     loadSentence();
@@ -169,5 +184,6 @@
 
 </body>
 </html>
+
 
 

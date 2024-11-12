@@ -17,7 +17,7 @@ totalAcertadas.innerHTML = correctas;
 totalNoAcertadas.innerHTML = incorrectas;
 
 btnComenar.addEventListener("click", () => {
-    location.href = "game.html";
+    location.href = "nivel3.html";
 });
 
 

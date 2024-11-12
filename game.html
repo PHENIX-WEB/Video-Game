@@ -63,6 +63,12 @@
             margin-top: 15px;
             background-color: #007bff;
         }
+        #congratulations-message {
+            font-size: 1.2em;
+            color: #28a745;
+            margin-top: 15px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -70,11 +76,12 @@
 <div class="game-container">
     <h1>Level 3</h1>
     <div id="level">difficulty: 1</div>
-    <div id="score">punctuation: 0</div>
+    <div id="score">score: 0</div>
     <div id="word-display">Press "Play" to start</div>
     <input type="text" id="user-input" placeholder="Write the phrase here..." disabled>
     <button id="play-button">PLAY</button>
-    <button id="next-level-button">Next difficulty</button>
+    <button id="next-level-button">Next level</button>
+    <div id="congratulations-message">Game over....gratulation</div>
 </div>
 
 <script>
@@ -95,6 +102,7 @@
     const userInput = document.getElementById('user-input');
     const playButton = document.getElementById('play-button');
     const nextLevelButton = document.getElementById('next-level-button');
+    const congratulationsMessage = document.getElementById('congratulations-message');
 
     function updateScoreAndLevel() {
         scoreDisplay.textContent = `score: ${score}`;
@@ -114,7 +122,7 @@
 
     function startNewRound() {
         currentWord = getRandomWord();
-        wordDisplay.textContent = "Listen to the word and write it...";
+        wordDisplay.textContent = "Listen to the phrase and write it...";
         userInput.value = "";
         userInput.disabled = false;
         userInput.focus();
@@ -137,13 +145,14 @@
                 if (level === maxLevel) {
                     wordDisplay.textContent = `Game over. Final score: ${score}`;
                     playButton.disabled = true;
-                    nextLevelButton.textContent = "Next level 3";
+                    nextLevelButton.textContent = "Restart";
                     nextLevelButton.style.display = "inline-block";
+                    congratulationsMessage.style.display = "block";
                 } else {
                     nextLevelButton.style.display = "inline-block";
                 }
             } else {
-                wordDisplay.textContent = "replay.";
+                wordDisplay.textContent = "Try again.";
                 userInput.value = "";
             }
         }
@@ -155,8 +164,9 @@
             score = 0;
             playButton.disabled = false;
             nextLevelButton.style.display = "none";
-           
-
+            congratulationsMessage.style.display = "none";
+            wordDisplay.textContent = "Press 'Play' to start";
+            updateScoreAndLevel();
         } else {
             level += 1;
             updateScoreAndLevel();
@@ -170,4 +180,5 @@
 
 </body>
 </html>
+
 

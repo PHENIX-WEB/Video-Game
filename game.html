@@ -135,7 +135,7 @@
                 wordDisplay.textContent = "¡Correcto!";
                 userInput.disabled = true;
                 if (level === maxLevel) {
-                    wordDisplay.textContent = `Juego terminado. Puntuación final: ${score}`;
+                    wordDisplay.textContent = `Game over. Final score: ${score}`;
                     playButton.disabled = true;
                     nextLevelButton.textContent = "Next level 3";
                     nextLevelButton.style.display = "inline-block";
@@ -143,7 +143,7 @@
                     nextLevelButton.style.display = "inline-block";
                 }
             } else {
-                wordDisplay.textContent = "Intenta de nuevo.";
+                wordDisplay.textContent = "replay.";
                 userInput.value = "";
             }
         }

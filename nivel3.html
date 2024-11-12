@@ -13,18 +13,22 @@
             height: 100vh;
             margin: 0;
             background-image: url(interfa.jpg);
-            background-size:cover;
-    background-position: center;
-    background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        .game-container {
+        .game-container, .final-page {
             text-align: center;
-            background: linear-gradient(#AED6F1,#F4ECF7 );
+            background: linear-gradient(#AED6F1, #F4ECF7);
             padding: 30px;
             border-radius: 6%;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             width: 100%;
+            display: none;
+        }
+        .game-container.active, .final-page.active {
+            display: block;
         }
         h1 {
             font-size: 1.8em;
@@ -64,11 +68,16 @@
 </head>
 <body>
 
-<div class="game-container">
+<div class="game-container active">
     <h1>Ordena la Frase en Comparativo</h1>
     <div id="scrambled-sentence"></div>
     <div id="success-message"></div>
     <button id="next-button">Siguiente Frase</button>
+</div>
+
+<div class="final-page">
+    <h1>¡Juego Completado!</h1>
+    <p id="final-score"></p>
 </div>
 
 <script>
@@ -79,18 +88,20 @@
     ];
 
     let currentSentenceIndex = 0;
+    let score = 0;
 
     const scrambledSentenceContainer = document.getElementById('scrambled-sentence');
     const successMessage = document.getElementById('success-message');
     const nextButton = document.getElementById('next-button');
+    const finalScore = document.getElementById('final-score');
+    const gameContainer = document.querySelector('.game-container');
+    const finalPage = document.querySelector('.final-page');
 
     function loadSentence() {
-        // Limpiar mensajes y ocultar botón de "Siguiente"
         scrambledSentenceContainer.innerHTML = "";
         successMessage.textContent = "";
         nextButton.style.display = "none";
 
-        // Obtener la oración desordenada
         const sentence = sentences[currentSentenceIndex];
         sentence.scrambled.forEach(word => {
             const wordElement = document.createElement('div');
@@ -139,6 +150,7 @@
         if (orderedSentence === sentences[currentSentenceIndex].correct) {
             successMessage.textContent = "¡Correcto!";
             nextButton.style.display = "inline-block";
+            score++;
         }
     }
 
@@ -147,14 +159,20 @@
         if (currentSentenceIndex < sentences.length) {
             loadSentence();
         } else {
-            successMessage.textContent = "¡Felicidades, has completado todas las frases!";
-            nextButton.style.display = "none";
+            displayFinalPage();
         }
     });
+
+    function displayFinalPage() {
+        gameContainer.classList.remove('active');
+        finalPage.classList.add('active');
+        finalScore.textContent = `Puntuación final: ${score} puntos de ${sentences.length}`;
+    }
 
     loadSentence();
 </script>
 
 </body>
 </html>
+
 

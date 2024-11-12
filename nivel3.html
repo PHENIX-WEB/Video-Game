@@ -69,13 +69,16 @@
 <body>
 
 <div class="game-container active">
-    <h1>Order the Sentence in Comparative</h1>
+    <h1>Ordena la Frase en Comparativo</h1>
     <div id="scrambled-sentence"></div>
     <div id="success-message"></div>
-    <button id="next-button">Next Sentence</button>
+    <button id="next-button">Siguiente Frase</button>
 </div>
 
-
+<div class="final-page">
+    <h1>¡Juego Completado!</h1>
+    <p id="final-score"></p>
+</div>
 
 <script>
     const sentences = [
@@ -163,14 +166,10 @@
     function displayFinalPage() {
         gameContainer.classList.remove('active');
         finalPage.classList.add('active');
-        finalScore.textContent = `Puntuación final: ${score} puntos de ${sentences.length}`;
+        finalScore.textContent = Puntuación final: ${score} puntos de ${sentences.length};
     }
 
     loadSentence();
-
-    
-    
-});
 </script>
 
 </body>

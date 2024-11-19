@@ -19,7 +19,7 @@ body{
 }
 .container{
     width: 500px;
-    background: linear-gradient(#a7217c,#a1234b);
+    background: linear-gradient (#42d7e3,#00737c );
     height: 85%;
     padding: 20px;
     position: relative;

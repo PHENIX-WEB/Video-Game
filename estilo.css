@@ -35,7 +35,7 @@ body{
 }
 header{
     background-color: #6b5ae4;
-    color: #fff;
+    color: #333333;
     text-align: center;
     font-size: 12px;
     padding: 10px;
@@ -48,7 +48,7 @@ header{
 .inicio{
     text-align: center;
     padding-top: 80px;
-    color: #fff;
+    color: #333333;
     font-size: 20px;
 }
 .inicio input{
@@ -64,7 +64,7 @@ header{
 }
 .btn{
     background-color: #66499e;
-    color: #fff;
+    color: #333333;
     border: 0;
     padding: 10px;
     font-weight: bold;
@@ -113,7 +113,7 @@ header{
 /* SECCION MENU DEL JUEGO */
 .menu{
     margin-top: 30px;
-    color: #fff;
+    color: #333333;
     text-align: center;
 }
 .categorias{
@@ -129,7 +129,7 @@ header{
     width: 170px;
     height: 90px;
     border-radius: 15px;
-    color: #fff;
+    color: #333333;
     position: relative;
     display: flex;
     align-items: end;
@@ -156,7 +156,7 @@ header{
 
 /* PANTALLA DE PREGUNTAS */
 .juego{
-    color: #fff;
+    color: #333333;
     margin-top: 30px;
     text-align: center;
 }
@@ -194,7 +194,7 @@ header{
 @keyframes zoom {
     0%{
         transform: scale(1);
-        color: #fff;
+        color: #333333;
         font-weight: bold;
     }
     40%{
@@ -207,7 +207,7 @@ header{
     }  
     100%{
         transform: scale(1);
-        color: #fff;
+        color: #333333;
         font-weight: normal;
     }
 }
@@ -220,7 +220,7 @@ header{
 .final{
     margin-top: 30px;
     text-align: center;
-    color: #fff;
+    color: #333333;
 }
 .final .medalla{
     position: relative;
@@ -240,7 +240,7 @@ header{
 }
 .final .puntaje-final{
     font-size: 50px;
-    color: #fff;
+    color: #333333;
     margin: 10px 0;
     display: inline-block;
 }
